@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AKNM Government Polytechnic College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e6f2ff;
+            --accent-color: #ff6600;
+            --accent-light: #ff8c42;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --dark-blue: #001a33;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.2);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-color);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+        
+        /* Header with Parallax Effect */
+        .about-header {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 26, 51, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-header::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--light-color);
+            transform: skewY(-3deg);
+            z-index: 1;
+        }
+        
+        .about-header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+        
+        .about-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .header-logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 2rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        .header-logo:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            display: block;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        /* Navigation */
+        .floating-nav {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-dot.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: scale(1.3);
+        }
+        
+        .nav-dot:hover:not(.active) {
+            background: var(--white);
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 8rem 2rem;
+            background-color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 1rem auto 0;
+            opacity: 0.8;
+        }
+        
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            background: linear-gradient(to bottom, var(--accent-color), var(--primary-color));
+        }
+        
+        .timeline-item {
+            padding: 1.5rem;
+            position: relative;
+            width: 50%;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+            text-align: left;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 2rem;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 0 3px var(--accent-light);
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 5px var(--accent-light);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover .timeline-content {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -15px;
+            border-width: 15px 0 15px 15px;
+            border-color: transparent transparent transparent var(--white);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -15px;
+            border-width: 15px 15px 15px 0;
+            border-color: transparent var(--white) transparent transparent;
+        }
+        
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 102, 0, 0.1);
+            border-radius: 30px;
+            letter-spacing: 1px;
+        }
+        
+        .timeline-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .timeline-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-title::after {
+            left: auto;
+            right: 0;
+        }
+        
+        /* Mission Vision Section */
+        .mission-vision {
+            padding: 8rem 2rem;
+            background: var(--gradient);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-vision::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .mission-vision::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .mv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mv-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .mv-icon {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .mv-card:hover .mv-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .mv-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .mv-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+        
+        /* Leadership Section */
+        .leadership-section {
+            padding: 8rem 2rem;
+            background-color: var(--light-color);
+            position: relative;
+        }
+        
+        .leaders-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .leader-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .leader-img {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .leader-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 51, 102, 0.7), transparent);
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .leader-card:hover .leader-img::before {
+            opacity: 1;
+        }
+        
+        .leader-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .leader-card:hover .leader-img img {
+            transform: scale(1.1);
+        }
+        
+        .leader-info {
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .leader-info h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .leader-card:hover .leader-info h3 {
+            color: var(--accent-color);
+        }
+        
+        .leader-info p.position {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .leader-info p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            transform: scale(0);
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+        
+        .social-links a:hover {
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        .social-links a:hover::before {
+            transform: scale(1);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), 
+                        url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 0;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .stat-number::after {
+            content: '+';
+            position: absolute;
+            right: -15px;
+            top: 10px;
+            font-size: 2rem;
+        }
+        
+        .stat-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 8rem 2rem;
+            background-color: var(--white);
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 280px;
+            overflow: hidden;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-caption h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 8rem 2rem;
+            background: var(--gradient);
+            color: var(--white);
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 2rem;
+            padding: 2rem 0;
+            scrollbar-width: none;
+        }
+        
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            scroll-snap-align: start;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+            margin: 0 auto 1.5rem;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--accent-color);
+            opacity: 0.5;
+        }
+        
+        .testimonial-quote::before {
+            position: absolute;
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-quote::after {
+            position: absolute;
+            bottom: -40px;
+            right: -15px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-position {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.3);
+        }
+        
+        /* Footer */
+        .about-footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+            opacity: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 1.2rem;
+        }
+        
+        .contact-info i {
+            color: var(--accent-color);
+            margin-top: 3px;
+        }
+        
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .about-header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-header h1 {
+                font-size: 3rem;
+            }
+            
+            .about-header p {
+                font-size: 1.1rem;
+            }
+            
+            .leader-img {
+                height: 300px;
+            }
+            
+            .stat-number {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-header {
+                height: 90vh;
+                min-height: 600px;
+            }
+            
+            .about-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -15px;
+                right: auto;
+                border-width: 15px 15px 15px 0;
+                border-color: transparent var(--white) transparent transparent;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .floating-nav {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-header h1 {
+                font-size: 2rem;
+            }
+            
+            .about-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .timeline-content {
+                padding: 1.5rem;
+            }
+            
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+            
+            .mv-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .mv-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .leader-img {
+                height: 250px;
+            }
+            
+            .stat-item {
+                padding: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .stat-title {
+                font-size: 1.1rem;
+            }
+            
+            .testimonial-card {
+                padding: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Header with Parallax Effect -->
+    <header class="about-header" id="home">
+        <div class="particles" id="particles-js"></div>
+        <img src="logo.png" alt="AKNM GPTC Logo" class="header-logo">
+        <h1 class="animate__animated animate__fadeInDown">About Our Institution</h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">Discover the rich heritage, values, and achievements that make AKNM Government Polytechnic College a premier technical education institution in Kerala</p>
+        <a href="#journey" class="scroll-down animate__animated animate__fadeIn animate__delay-2s">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+        <a href="#home" class="nav-dot active" data-section="home"></a>
+        <a href="#journey" class="nav-dot" data-section="journey"></a>
+        <a href="#values" class="nav-dot" data-section="values"></a>
+        <a href="#leadership" class="nav-dot" data-section="leadership"></a>
+        <a href="#stats" class="nav-dot" data-section="stats"></a>
+        <a href="#gallery" class="nav-dot" data-section="gallery"></a>
+        <a href="#testimonials" class="nav-dot" data-section="testimonials"></a>
+    </nav>
+
+    <!-- History Timeline Section -->
+    <section class="timeline-section" id="journey">
+        <div class="section-title">
+            <h2>Our Journey</h2>
+            <p class="section-subtitle">A timeline of milestones and achievements that shaped our institution</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">1994</span>
+                    <h3 class="timeline-title">Inception</h3>
+                    <p>AKNM Government Polytechnic College was established with a vision to provide quality technical education to students in the Malabar region of Kerala.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">1996</span>
+                    <h3 class="timeline-title">First Batch Graduation</h3>
+                    <p>Our first batch of students graduated, marking the beginning of a legacy of producing skilled technical professionals.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2002</span>
+                    <h3 class="timeline-title">Infrastructure Expansion</h3>
+                    <p>Major infrastructure development including new laboratories, workshop facilities, and library expansion.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2010</span>
+                    <h3 class="timeline-title">AICTE Recognition</h3>
+                    <p>Received permanent affiliation from AICTE and introduced new diploma programs in emerging technical fields.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2018</span>
+                    <h3 class="timeline-title">Smart Campus Initiative</h3>
+                    <p>Implemented digital classrooms, high-speed campus WiFi, and e-learning platforms for enhanced education delivery.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023</span>
+                    <h3 class="timeline-title">Current Excellence</h3>
+                    <p>Recognized as one of the top polytechnic colleges in Kerala with state-of-the-art facilities and industry collaborations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Section -->
+    <section class="mission-vision" id="values">
+        <div class="section-title">
+            <h2 style="color: var(--white);">Our Core Values</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">The principles that guide our educational philosophy and institutional growth</p>
+        </div>
+        <div class="mv-container">
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Vision</h3>
+                <p>To be a center of excellence in technical education that produces competent professionals with strong ethical values, capable of meeting global challenges and contributing to societal development through innovation and leadership.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Mission</h3>
+                <p>To provide quality technical education through innovative teaching methods, industry collaboration, and research orientation. To develop skilled professionals with entrepreneurial mindset and social responsibility.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Quality Policy</h3>
+                <p>We are committed to continuous improvement in all academic and administrative processes to achieve excellence in technical education and produce diploma holders who meet industry requirements and societal expectations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership-section" id="leadership">
+        <div class="section-title">
+            <h2>Our Leadership</h2>
+            <p class="section-subtitle">The visionary leaders who guide our institution towards excellence</p>
+        </div>
+        <div class="leaders-container">
+            <div class="leader-card">
+                <div class="leader-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Principal">
+                </div>
+                <div class="leader-info">
+                    <h3>Dr. Rajesh Kumar</h3>
+                    <p class="position">Principal</p>
+                    <p>With over 25 years of experience in technical education, Dr. Kumar has been instrumental in transforming AKNM GPTC into a center of excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="leader-card">
+                <div class="leader-img">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Vice Principal">
+                </div>
+                <div class="leader-info">
+                    <h3>Prof. Sunitha Menon</h3>
+                    <p class="position">Vice Principal</p>
+                    <p>A dedicated educator with specialization in Electronics Engineering, Prof. Menon focuses on curriculum development and student mentorship.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="leader-card">
+                <div class="leader-img">
+                    <img src="https://images.unsplash.com/photo-1542190891-2093d38760f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Academic Dean">
+                </div>
+                <div class="leader-info">
+                    <h3>Dr. Arun Prakash</h3>
+                    <p class="position">Academic Dean</p>
+                    <p>Dr. Prakash oversees all academic programs and ensures the curriculum remains industry-relevant and meets global standards.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="section-title">
+            <h2 style="color: var(--white);">By The Numbers</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Quantifying our impact and growth over the years</p>
+        </div>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" id="students-count">0</div>
+                <div class="stat-title">Current Students</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="alumni-count">0</div>
+                <div class="stat-title">Successful Alumni</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="programs-count">0</div>
+                <div class="stat-title">Diploma Programs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="faculty-count">0</div>
+                <div class="stat-title">Faculty Members</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-title">
+            <h2>Campus Life</h2>
+            <p class="section-subtitle">Explore our vibrant campus through these glimpses</p>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Students">
+                <div class="gallery-caption">
+                    <h3>Student Activities</h3>
+                    <p>Engaging extracurricular programs</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Library">
+                <div class="gallery-caption">
+                    <h3>College Library</h3>
+                    <p>Knowledge hub with 25,000+ volumes</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lab">
+                <div class="gallery-caption">
+                    <h3>Electronics Lab</h3>
+                    <p>State-of-the-art equipment</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Workshop">
+                <div class="gallery-caption">
+                    <h3>Workshop</h3>
+                    <p>Hands-on practical training</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Seminar">
+                <div class="gallery-caption">
+                    <h3>Technical Seminar</h3>
+                    <p>Industry expert interactions</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sports">
+                <div class="gallery-caption">
+                    <h3>Sports Facilities</h3>
+                    <p>Encouraging physical fitness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-title">
+            <h2 style="color: var(--white);">Testimonials</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">What our students and partners say about us</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Alumni" class="testimonial-avatar">
+                    <p class="testimonial-quote">AKNM GPTC provided me with the perfect foundation for my engineering career. The hands-on training and industry exposure were invaluable.</p>
+                    <h4 class="testimonial-author">Anjali Menon</h4>
+                    <p class="testimonial-position">Project Engineer at TechSolutions, Alumni 2015</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Industry Partner" class="testimonial-avatar">
+                    <p class="testimonial-quote">We consistently find AKNM graduates to be well-prepared and technically competent. Their practical skills make them immediately productive in our projects.</p>
+                    <h4 class="testimonial-author">Rajeev Nair</h4>
+                    <p class="testimonial-position">HR Manager at Kerala Automation</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Current Student" class="testimonial-avatar">
+                    <p class="testimonial-quote">The supportive faculty and excellent lab facilities make learning enjoyable. I'm proud to be part of this institution that values both academics and personality development.</p>
+                    <h4 class="testimonial-author">Divya S.</h4>
+                    <p class="testimonial-position">Computer Engineering Student</p>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="about-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About AKNM GPTC</h3>
+                <p>AKNM Government Polytechnic College, Thirurangadi is a premier technical education institution established in 1994. Located at Chelari near NH 66, we provide quality education in various engineering disciplines.</p>
+                <div class="social-links" style="justify-content: flex-start; margin-top: 1.5rem;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Academics</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Placements</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Chelari, Thirurangadi, Malappuram, Kerala - 676306</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <p>Office: 0494-2460000</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <p>principal@aknmgptc.edu.in</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-clock"></i>
+                    <p>Mon-Sat: 9:00 AM - 4:30 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 AKNM Government Polytechnic College. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.preloader').classList.add('fade-out');
+                setTimeout(function() {
+                    document.querySelector('.preloader').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Particles.js Configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#ffffff"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#ffffff",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        });
+
+        // Animate timeline items on scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkScroll() {
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight - 100) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+        
+        // Animate stats counting
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Start counting when stats section is in view
+        const statsSection = document.querySelector('.stats-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue('students-count', 0, 1200, 2000);
+                    animateValue('alumni-count', 0, 8500, 2000);
+                    animateValue('programs-count', 0, 6, 1000);
+                    animateValue('faculty-count', 0, 85, 1500);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Floating navigation active state
+        const sections = document.querySelectorAll('section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+        
+        // Testimonial slider
+        const slider = document.getElementById('testimonialSlider');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function goToSlide(index) {
+            slider.scrollTo({
+                left: slider.offsetWidth * index,
+                behavior: 'smooth'
+            });
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                goToSlide(slideIndex);
+            });
+        });
+        
+        // Auto slide change
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            goToSlide(currentSlide);
+        }, 5000);
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Create floating particles for header
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            if (!particlesContainer) return;
+            
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('span');
+                particle.classList.add('particle');
+                
+                // Random size between 5px and 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Add hover effect to cards with tilt animation
+        const cards = document.querySelectorAll('.mv-card, .leader-card, .stat-item, .gallery-item');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 15;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 15;
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+            
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'all 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+                card.style.transition = 'all 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>
